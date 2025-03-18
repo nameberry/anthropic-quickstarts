@@ -26,6 +26,8 @@ export interface RAGSource {
   fileName: string;
   snippet: string;
   score: number;
+  url: string;
+  title: string;
 }
 
 export async function retrieveContext(
@@ -60,10 +62,13 @@ export async function retrieveContext(
 
     // Parse results
     const rawResults = response?.retrievalResults || [];
+    console.log(">>>>> Raw Results:", rawResults);
+
     const ragSources: RAGSource[] = rawResults
       .filter((res: any) => res.content && res.content.text)
       .map((result: any, index: number) => {
-        const uri = result?.location?.s3Location?.uri || "";
+        const uri = result?.metadata?.url || "";
+        const title = result?.metadata?.title || "";
         const fileName = uri.split("/").pop() || `Source-${index}.txt`;
 
         return {
@@ -72,9 +77,11 @@ export async function retrieveContext(
           fileName: fileName.replace(/_/g, " ").replace(".txt", ""),
           snippet: result.content?.text || "",
           score: result.score || 0,
+          title: title,
+          url: uri,
         };
       })
-      .slice(0, 1);
+      .slice(0, 3);
 
     console.log("🔍 Parsed RAG Sources:", ragSources); // Debug log
 

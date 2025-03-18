@@ -10,6 +10,8 @@ interface RAGSource {
   fileName: string;
   snippet: string;
   score: number;
+  url: string;
+  title: string;
   timestamp?: string;
 }
 
@@ -48,6 +50,7 @@ const RightSidebar: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedSource, setSelectedSource] = useState<RAGSource | null>(null);
 
+  console.log(">>>>> RAG history:", ragHistory);
   useEffect(() => {
     const updateRAGSources = (
       event: CustomEvent<{
@@ -66,6 +69,7 @@ const RightSidebar: React.FC = () => {
         sources.length > 0 &&
         shouldDisplaySources
       ) {
+        console.log(">>>>> Sources:", sources);
         const cleanedSources = sources.map((source) => ({
           ...source,
           snippet: source.snippet || "No preview available",
@@ -181,15 +185,17 @@ const RightSidebar: React.FC = () => {
                       >
                         {(source.score * 100).toFixed(0)}% match
                       </div>
-                      <div
+                      {/* <div
                         className="inline-flex items-center mr-2 mt-2 text-muted-foreground text-xs py-0 cursor-pointer hover:text-gray-600"
                         onClick={() => handleViewFullSource(source)}
-                      >
+                      > */}
+                      <a href={source.url} target="_blank">
                         <FileIcon className="w-4 h-4 min-w-[12px] min-h-[12px] mr-2" />
                         <span className="text-xs underline">
-                          {truncateSnippet(source.fileName || "Unnamed")}
+                          {truncateSnippet(source.title || "Untitled")}
                         </span>
-                      </div>
+                      </a>
+                      {/* </div> */}
                     </div>
                   </CardContent>
                 </Card>

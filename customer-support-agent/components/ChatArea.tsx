@@ -302,16 +302,17 @@ function ChatArea() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showHeader, setShowHeader] = useState(false);
-  const [selectedModel, setSelectedModel] = useState("claude-3-haiku-20240307");
+  const [selectedModel, setSelectedModel] = useState("claude-3-5-sonnet-20240620");
   const [showAvatar, setShowAvatar] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [selectedKnowledgeBase, setSelectedKnowledgeBase] = useState(
-    "your-knowledge-base-id",
+    "FWQ6WMOCXH",
   );
 
   const knowledgeBases: KnowledgeBase[] = [
-    { id: "IKCWFFZC9N", name: "Nameberry KB" },
+    // { id: "IKCWFFZC9N", name: "Nameberry KB" },
+    { id: "FWQ6WMOCXH", name: "Nameberry Separate File KB" },
     // Add more knowledge bases as needed
   ];
 
