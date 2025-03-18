@@ -590,8 +590,8 @@ function ChatArea() {
             <div className="flex flex-col items-center justify-center h-full animate-fade-in-up">
               <Avatar className="w-10 h-10 mb-4 border">
                 <AvatarImage
-                  src="/ant-logo.svg"
-                  alt="AI Assistant Avatar"
+                  src="https://nameberry.com/favicon.ico"
+                  alt="Nameberry.AI Avatar"
                   width={40}
                   height={40}
                 />
@@ -603,15 +603,14 @@ function ChatArea() {
                 <div className="flex items-center gap-3">
                   <HandHelping className="text-muted-foreground" />
                   <p className="text-muted-foreground">
-                    Need guidance? I&apos;ll help navigate tasks using internal
-                    resources.
+                    Need guidance? I&apos;ll help you find the perfect name.
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <WandSparkles className="text-muted-foreground" />
                   <p className="text-muted-foreground">
                     I&apos;m a whiz at finding information! I can dig through
-                    your knowledge base.
+                    everything Nameberry has to offer.
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
