@@ -93,7 +93,7 @@ const LeftSidebar: React.FC = () => {
   }, []);
 
   return (
-    <aside className="w-[380px] pl-4 overflow-hidden pb-4">
+    <aside className="w-full md:w-[380px] pl-4 overflow-hidden pb-4 pr-4 md:pr-0">
       <Card className="h-full overflow-hidden">
         <CardHeader>
           <CardTitle className="text-sm font-medium leading-none">

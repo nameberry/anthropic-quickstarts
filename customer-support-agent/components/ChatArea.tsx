@@ -312,7 +312,7 @@ function ChatArea() {
 
   const knowledgeBases: KnowledgeBase[] = [
     // { id: "IKCWFFZC9N", name: "Nameberry KB" },
-    { id: "FWQ6WMOCXH", name: "Nameberry Separate File KB" },
+    { id: "FWQ6WMOCXH", name: "NB" },
     // Add more knowledge bases as needed
   ];
 

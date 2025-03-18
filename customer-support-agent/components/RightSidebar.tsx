@@ -136,7 +136,7 @@ const RightSidebar: React.FC = () => {
   };
 
   return (
-    <aside className="w-[380px] pr-4 overflow-hidden pb-4">
+    <aside className="w-full md:w-[380px] pr-4 overflow-hidden pb-4 pl-4 md:pl-0">
       <Card
         className={`${fadeInUpClass} h-full overflow-hidden`}
         style={fadeStyle}
