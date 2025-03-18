@@ -62,8 +62,6 @@ export async function retrieveContext(
 
     // Parse results
     const rawResults = response?.retrievalResults || [];
-    console.log(">>>>> Raw Results:", rawResults);
-
     const ragSources: RAGSource[] = rawResults
       .filter((res: any) => res.content && res.content.text)
       .map((result: any, index: number) => {

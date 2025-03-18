@@ -69,7 +69,6 @@ const RightSidebar: React.FC = () => {
         sources.length > 0 &&
         shouldDisplaySources
       ) {
-        console.log(">>>>> Sources:", sources);
         const cleanedSources = sources.map((source) => ({
           ...source,
           snippet: source.snippet || "No preview available",
