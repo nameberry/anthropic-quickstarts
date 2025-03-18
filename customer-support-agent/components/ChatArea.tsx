@@ -233,7 +233,7 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({
         <>
           <Avatar className="w-10 h-10 border">
             <AvatarImage
-              src="/ant-logo.svg"
+              src="https://nameberry.com/favicon.ico"
               alt="AI Assistant Avatar"
               width={40}
               height={40}
@@ -241,8 +241,8 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({
             <AvatarFallback>AI</AvatarFallback>
           </Avatar>
           <div>
-            <h3 className="text-sm font-medium leading-none">AI Agent</h3>
-            <p className="text-sm text-muted-foreground">Customer support</p>
+            <h3 className="text-sm font-medium leading-none">Nameberry</h3>
+            <p className="text-sm text-muted-foreground">AI</p>
           </div>
         </>
       )}
@@ -302,7 +302,7 @@ function ChatArea() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showHeader, setShowHeader] = useState(false);
-  const [selectedModel, setSelectedModel] = useState("claude-3-5-sonnet-20240620");
+  const [selectedModel, setSelectedModel] = useState("claude-3-7-sonnet-20250219");
   const [showAvatar, setShowAvatar] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -319,6 +319,7 @@ function ChatArea() {
   const models: Model[] = [
     { id: "claude-3-haiku-20240307", name: "Claude 3 Haiku" },
     { id: "claude-3-5-sonnet-20240620", name: "Claude 3.5 Sonnet" },
+    { id: "claude-3-7-sonnet-20250219", name: "Claude 3.7 Sonnet" },
   ];
 
   const scrollToBottom = () => {
