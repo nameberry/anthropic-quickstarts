@@ -640,7 +640,7 @@ function ChatArea() {
                     {message.role === "assistant" && (
                       <Avatar className="w-8 h-8 mr-2 border">
                         <AvatarImage
-                          src="/ant-logo.svg"
+                          src="https://nameberry.com/favicon.ico"
                           alt="AI Assistant Avatar"
                         />
                         <AvatarFallback>AI</AvatarFallback>
