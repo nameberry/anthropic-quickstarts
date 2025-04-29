@@ -117,7 +117,7 @@ export async function POST(req: Request) {
   measureTime("RAG Total Duration");
 
   // Prepare categories context for the system prompt
-  const USE_CATEGORIES = true;
+  const USE_CATEGORIES = false;
   const categoryListString = customerSupportCategories.categories
     .map((c) => c.id)
     .join(", ");
@@ -141,9 +141,7 @@ export async function POST(req: Request) {
 
   ${categoriesContext}
 
-  If the question is unrelated to Anthropic's products and services, you should redirect the user to a human agent.
-
-  You are the first point of contact for the user and should try to resolve their issue or provide relevant information. If you are unable to help the user or if the user explicitly asks to talk to a human, you can redirect them to a human agent for further assistance.
+  If the question is unrelated to baby names or baby naming, you should politely remind the user that you are a baby naming expert and that you can only help with baby naming related questions.
   
   To display your responses correctly, you must format your entire response as a valid JSON object with the following structure:
   {
@@ -198,7 +196,7 @@ export async function POST(req: Request) {
   function sanitizeAndParseJSON(jsonString : string) {
     // Replace newlines within string values
     const sanitized = jsonString.replace(/(?<=:\s*")(.|\n)*?(?=")/g, match => 
-      match.replace(/\n/g, "\\n")
+      match.replace(/\n/g, "<br/>")
     );
   
     try {
@@ -262,6 +260,7 @@ export async function POST(req: Request) {
       console.log("Reason:", responseWithId.redirect_to_agent.reason);
     }
 
+    console.log("🔍 Response:", responseWithId);
     // Prepare the response object
     const apiResponse = new Response(JSON.stringify(responseWithId), {
       status: 200,
