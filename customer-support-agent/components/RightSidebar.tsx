@@ -175,25 +175,26 @@ const RightSidebar: React.FC = () => {
                   }}
                 >
                   <CardContent className="py-4">
-                    <p className="text-sm text-muted-foreground">
+                    {/* <p className="text-sm text-muted-foreground">
                       {truncateSnippet(source.snippet)}
-                    </p>
+                    </p> */}
                     <div className="flex flex-col gap-2">
-                      <div
-                        className={`${getScoreColor(source.score)} px-2 py-1 mt-4 rounded-full text-xs inline-block w-fit`}
-                      >
-                        {(source.score * 100).toFixed(0)}% match
-                      </div>
+
                       {/* <div
                         className="inline-flex items-center mr-2 mt-2 text-muted-foreground text-xs py-0 cursor-pointer hover:text-gray-600"
                         onClick={() => handleViewFullSource(source)}
                       > */}
                       <a href={source.url} target="_blank">
-                        <FileIcon className="w-4 h-4 min-w-[12px] min-h-[12px] mr-2" />
+                        {/* <FileIcon className="w-4 h-4 min-w-[12px] min-h-[12px] mr-2" /> */}
                         <span className="text-xs underline">
                           {truncateSnippet(source.title || "Untitled")}
                         </span>
                       </a>
+                      <div
+                        className={`${getScoreColor(source.score)} px-2 py-1 mt-4 rounded-full text-xs inline-block w-fit`}
+                      >
+                        {(source.score * 100).toFixed(0)}% match
+                      </div>
                       {/* </div> */}
                     </div>
                   </CardContent>

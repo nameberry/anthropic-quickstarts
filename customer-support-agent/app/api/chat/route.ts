@@ -146,7 +146,7 @@ export async function POST(req: Request) {
   To display your responses correctly, you must format your entire response as a valid JSON object with the following structure:
   {
       "thinking": "Brief explanation of your reasoning for how you should address the user's query",
-      "response": "Your concise response to the user",
+      "response": "Your concise response to the user formatted as HTML with lists of names formatted using <ul> and <li> tags",
       "user_mood": "positive|neutral|negative|curious|frustrated|confused",
       "suggested_questions": ["Question 1?", "Question 2?", "Question 3?"],
       "debug": {
@@ -191,12 +191,14 @@ export async function POST(req: Request) {
       "reason": "Complex technical issue requiring human expertise"
     }
   }
+
+  Further, I would like the response to be formatted as HTML with lists and line breaks as needed.
   `
 
   function sanitizeAndParseJSON(jsonString : string) {
     // Replace newlines within string values
     const sanitized = jsonString.replace(/(?<=:\s*")(.|\n)*?(?=")/g, match => 
-      match.replace(/\n/g, "<br/>")
+      match.replace(/\n/g, "\\n")
     );
   
     try {
